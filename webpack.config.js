@@ -16,10 +16,6 @@ module.exports = {
                 test: /\.sass$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-            },
         ],
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },
@@ -33,9 +29,4 @@ module.exports = {
         port: 3000,
         host: 'localhost',
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            READ_ONLY_AIRTABLE_API_KEY: process.env.READ_ONLY_AIRTABLE_API_KEY,
-        }),
-    ],
 }

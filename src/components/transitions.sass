@@ -1,0 +1,87 @@
+.app-enter
+    opacity: 0
+    top: -100%
+
+    .navbar
+        top: -100%
+
+    &-active
+        opacity: 1
+        top: 0
+        transition: opacity 1000ms, top 1000ms
+
+        .navbar
+            top: 0
+            transition: opacity 1000ms, top 1000ms
+
+    &-done
+        opacity: 1
+        top: 0
+
+.splash-screen-exit
+    opacity: 1
+
+    &-active
+        opacity: 0
+        transition: opacity 500ms
+
+    &-done
+        opacity: 0
+
+.project-left-enter
+    transform: translate(100%, 0)
+
+    &-active
+        transform: translate(0, 0)
+        transition: transform 500ms
+
+.project-left-exit
+    transform: translate(0, 0)
+
+    &-active
+        transform: translate(-100%, 0)
+        transition: transform 500ms
+
+    &-done
+        display: none
+
+.project-right-enter
+    transform: translate(-100%, 0)
+
+    &-active
+        transform: translate(0, 0)
+        transition: transform 500ms
+
+.project-right-exit
+    transform: translate(0, 0)
+
+    &-active
+        transform: translate(100%, 0)
+        transition: transform 500ms
+
+    &-done
+        display: none
+
+.menu-mobile-enter
+    height: 0
+    transform: scaleY(0)
+
+    &-active
+        height: 60px
+        transform: scaleY(1)
+        transition: height 500ms, transform 500ms
+    &-done
+        transform: scaleY(1)
+        height: 60px
+
+.menu-mobile-exit
+    height: 60px
+    transform: scaleY(1)
+
+    &-active
+        height: 0
+        transform: scaleY(0)
+        transition: height 500ms, transform 500ms
+    &-done
+        transform: scaleY(0)
+        height: 0

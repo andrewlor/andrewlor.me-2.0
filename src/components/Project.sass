@@ -1,31 +1,74 @@
 @import 'vars'
 
 .project
-    width: 70vw
+    height: 100%
+    width: 100%
     border-bottom: 1px solid $border
-    padding: 20px
+    position: absolute
+    top: 0
+
+    img
+        height: 100%
+        width: 100%
+        object-fit: cover
 
     &:last-of-type
         border-bottom: none
 
-    .title-container
+    .menu
+        position: relative
+        height: 160px
+        top: -244px
+        padding: 40px 20px
+        background-color: rgba(15, 25, 34, 0.5)
+        backdrop-filter: blur(4px)
+        box-shadow: 0px 0px 10px 0px $border
         display: flex
         align-items: center
 
-        h2
-            margin-right: auto
+        >span.material-icons
+            font-size: 64px
 
-        a
-            text-decoration: none
-            color: black
-            margin-left: 10px
+        .text-container
+            margin: 0 20px
+            flex: 1
+            height: 100%
+            display: flex
+            flex-direction: column
 
-    .tag-container
-        display: flex
+            .title-container
+                display: flex
+                align-items: center
 
-        .tag
-            padding: 3px 10px
-            background: $border
-            border-radius: 20px
-            color: white
-            margin-right: 10px
+                h2
+                    margin: 0 auto 0 0
+
+                a
+                    text-decoration: none
+                    color: black
+                    margin-left: 10px
+                    filter: invert(100%)
+
+            .description
+                overflow-y: scroll
+
+            .tag-container
+                display: flex
+                margin-top: auto
+
+                .tag
+                    padding: 3px 10px
+                    background: $border
+                    border-radius: 20px
+                    color: white
+                    margin-right: 10px
+
+        @media screen and (max-width: $mobile-width)
+            padding: 20px 10px
+            top: -204px
+
+            >span.material-icons
+                font-size: 32px
+
+            .text-container .tag-container
+                display: none

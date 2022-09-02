@@ -1,69 +1,43 @@
-import React, { memo, useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { memo, useState } from 'react'
 import Project from './Project'
-import loadingGif from '../../public/assets/loading.gif'
+import { CSSTransition } from 'react-transition-group'
 import './Projects.sass'
-import { actions } from '../redux'
 
-const Projects = ({ projects, isLoading, error, fetchProjects }) => {
-    const [search, setSearch] = useState('')
+const Projects = ({ projects }) => {
+    const [index, setIndex] = useState(0)
+    const [leftTransition, setLeftTransition] = useState(true)
 
-    useEffect(() => {
-        fetchProjects(search)
-    }, [search])
-
-    const handleTag = (tag) => () => setSearch(tag)
+    const cycleProject = (direction) => () => {
+        setLeftTransition(direction > 0)
+        setIndex((i) =>
+            direction < 0 && i == 0
+                ? projects.length - 1
+                : (i + direction) % projects.length
+        )
+    }
 
     return (
-        <div id="projects">
-            <div className="search-container">
-                <input
-                    id="searchbar"
-                    placeholder="Search Development + Design Portfolio"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-                {search && search.length > 0 && (
-                    <span
-                        className="material-icons clear-search hoverable"
-                        onClick={() => setSearch('')}
+        <div className="projects">
+            {projects &&
+                projects.map((project, i) => (
+                    <CSSTransition
+                        in={index === i}
+                        timeout={1000}
+                        classNames={
+                            leftTransition ? 'project-left' : 'project-right'
+                        }
+                        unmountOnExit
                     >
-                        close
-                    </span>
-                )}
-            </div>
-            <div id="container" className={isLoading ? 'loading' : ''}>
-                {projects &&
-                    (projects.length === 0 ? (
-                        <p>No projects found</p>
-                    ) : (
-                        projects.map((project) => (
-                            <Project
-                                key={project.id}
-                                project={project}
-                                handleTag={handleTag}
-                            />
-                        ))
-                    ))}
-                {error && <p>{error}</p>}
-            </div>
-            {(isLoading || !projects) && (
-                <div id="loading-overlay">
-                    <img id="loader" src={loadingGif} />
-                </div>
-            )}
+                        <Project
+                            key={project.title}
+                            project={project}
+                            next={cycleProject(1)}
+                            prev={cycleProject(-1)}
+                        />
+                    </CSSTransition>
+                ))}
         </div>
     )
 }
 
-export default connect(
-    (state) => ({
-        projects: state.projects,
-        isLoading: state.isLoading,
-        error: state.error,
-    }),
-    (dispatch) => ({
-        fetchProjects: (search) =>
-            dispatch(actions.projects.fetch.requested(search)),
-    })
-)(memo(Projects))
+export default memo(Projects)

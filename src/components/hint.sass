@@ -1,0 +1,59 @@
+@import "vars"
+
+.react-hint
+    padding: 5px
+    position: absolute
+    z-index: 9999
+    cursor: default
+    animation: 250ms fadeIn
+
+    &__content
+        padding: 5px
+        border-radius: 5px
+        background: $border
+        color: white
+
+    &:after
+        content: ''
+        width: 0
+        height: 0
+        margin: auto
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        border: 5px solid transparent
+
+    &--top:after
+        top: auto
+        border-bottom: none
+        border-top-color: $border
+
+    &--left:after
+        left: auto
+        border-right: none
+        border-left-color: $border
+
+    &--right:after
+        right: auto
+        border-left: none
+        border-right-color: $border
+
+    &--bottom:after
+        bottom: auto
+        border-top: none
+        border-bottom-color: $border
+
+    &--top
+        margin-bottom: 10px
+
+    &--left
+        margin-right: 10px
+
+    &--right
+        margin-left: 10px
+
+    &--bottom
+        margin-top: 10px
