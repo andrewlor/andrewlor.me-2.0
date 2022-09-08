@@ -14,7 +14,6 @@ body
 
 *
     font-family: 'Quicksand', sans-serif
-    letter-spacing: -1px
     user-select: none
 
 .hoverable
@@ -65,7 +64,7 @@ button
         &.background
             background-color: rgba(15, 25, 34, 0.5)
             backdrop-filter: blur(4px)
-            box-shadow: 0px 0px 10px 0px $border
+            -webkit-backdrop-filter: blur(4px)
 
         .text-container
             margin: 0 auto 0 20px
@@ -143,7 +142,7 @@ button
         padding: 0 50px
         text-align: center
 
-    h1
+    p
         font-size: 48px
 
 #about, #contact
@@ -164,6 +163,9 @@ button
 
         p
             font-size: 20px
+
+            &:first-child
+                font-size: 32px
 
     .email .material-icons
         margin-left: 10px

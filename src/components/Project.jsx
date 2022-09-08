@@ -23,7 +23,7 @@ const Project = ({ project, next, prev }) => (
             </span>
             <div className="text-container">
                 <div className="title-container">
-                    <h2>{project.title}</h2>
+                    <p>{project.title}</p>
                     {renderLink(project.source, 'source', 'Source Code')}
                     {renderLink(project.demo, 'play_circle', 'Live Demo')}
                 </div>

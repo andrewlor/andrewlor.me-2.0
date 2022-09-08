@@ -111,7 +111,7 @@ const App = () => {
                     <div ref={scrollContainerRef} className="scroll-container">
                         <div id="home" className="page">
                             <div className="content">
-                                <h1>Web Development + Design</h1>
+                                <p>Web Development + Design</p>
                                 <button
                                     className="hoverable"
                                     onClick={navigateToPage('about')}
@@ -123,7 +123,7 @@ const App = () => {
                         <div id="about" className="page">
                             <img src={mountain} />
                             <div className="text">
-                                <h1>About</h1>
+                                <p>About</p>
                                 <p>
                                     My name is Andrew. I'm a freelance software
                                     developer.
@@ -147,7 +147,7 @@ const App = () => {
                         </div>
                         <div id="contact" className="page">
                             <div className="text">
-                                <h1>Contact</h1>
+                                <p>Contact</p>
                                 <p>
                                     If you have a project you think I'd be a
                                     good fit to work on, reach out.
