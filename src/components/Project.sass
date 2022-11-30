@@ -7,10 +7,26 @@
     position: absolute
     top: 0
 
-    img
+    .img-container
         height: 100%
         width: 100%
-        object-fit: cover
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .background-img
+            height: 100%
+            width: 100%
+            z-index: -1
+            position: absolute
+            object-fit: cover
+
+        .display-img
+            width: 50%
+            object-fit: cover
+            border-radius: 5px
+            margin-bottom: 160px
+            cursor: pointer
 
     &:last-of-type
         border-bottom: none
@@ -69,7 +85,7 @@
             top: -204px
 
             >span.material-icons
-                font-size: 32px
+                font-size: $large
 
             .text-container .tag-container
                 display: none

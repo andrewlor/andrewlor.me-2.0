@@ -23,6 +23,12 @@ body
     &:hover
         transform: scale(1.1)
 
+.button-menu
+    display: flex
+
+    button
+        margin-right: 10px
+
 button
     font-size: 16px
     padding: 10px
@@ -36,6 +42,19 @@ button
 
     &:active
         opacity: 0.8
+
+    &.icon
+        display: flex
+        align-items: center
+        .icon
+            margin-left: 5px
+            width: 20px
+            height: 20px
+            filter: invert(100%)
+
+            &.material-icons
+                filter: none
+                font-size: 20px
 
 .app
     position: absolute
@@ -105,6 +124,7 @@ button
 
         .menu-mobile
             display: none
+            position: relative
 
         @media screen and (max-width: $mobile-width)
             width: calc(100vw - 40px)
@@ -143,12 +163,15 @@ button
         text-align: center
 
     p
-        font-size: 48px
+        margin: 0 0 20px 0
+
+        &.first
+            font-size: 32px
 
 #about, #contact
     display: flex
 
-    img
+    >img
         height: 100%
         width: 50%
         object-fit: cover
@@ -167,14 +190,8 @@ button
             &:first-child
                 font-size: 32px
 
-    .email .material-icons
-        margin-left: 10px
-
-    button
+    .button-menu
         margin-top: 40px
-        width: fit-content
-        display: flex
-        align-items: center
 
     @media screen and (max-width: $mobile-width)
         img

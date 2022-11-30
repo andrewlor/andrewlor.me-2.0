@@ -1,4 +1,6 @@
 import React, { memo } from 'react'
+import { assets } from '../data'
+import { openLinkInNewTab } from '../utils'
 import './Project.sass'
 
 const renderLink = (link, icon, label) =>
@@ -16,7 +18,14 @@ const renderTag = (name) => (
 
 const Project = ({ project, next, prev }) => (
     <div className="project">
-        <img src={project.img} />
+        <div className="img-container">
+            <img className="background-img" src={assets.desktop} />
+            <img
+                className="display-img hoverable"
+                src={project.img}
+                onClick={openLinkInNewTab(project.demo)}
+            />
+        </div>
         <div className="menu">
             <span className="material-icons hoverable" onClick={prev}>
                 chevron_left

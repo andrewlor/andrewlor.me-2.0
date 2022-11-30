@@ -15,7 +15,7 @@ const { github, linkedin, me, bridge, mountain } = assets
 const ReactHint = ReactHintFactory(React)
 
 const App = () => {
-    const [navBarBackground, setNavBarBackground] = useState(false)
+    const [navBarBackground, setNavBarBackground] = useState(true)
     const [menuIn, setMenuIn] = useState(false)
     const [appIn, setAppIn] = useState(false)
 
@@ -24,14 +24,11 @@ const App = () => {
     useEffect(() => {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.addEventListener('scroll', (e) => {
-                if (
-                    e.target.scrollTop >= e.target.clientHeight &&
-                    navBarBackground === false
-                ) {
-                    setNavBarBackground(true)
-                } else {
-                    setNavBarBackground(false)
-                }
+                const showBackground =
+                    e.target.scrollTop <= 2 * e.target.clientHeight - 100 ||
+                    e.target.scrollTop >= 2 * e.target.clientHeight + 100
+
+                setNavBarBackground(showBackground)
             })
         }
         window.addEventListener('resize', (e) => {
@@ -57,6 +54,9 @@ const App = () => {
             <p className="link" onClick={navigateToPage('projects')}>
                 Projects
             </p>
+            {/* <p className="link" onClick={navigateToPage('products')}>
+                Products
+            </p> */}
             <p className="link" onClick={navigateToPage('contact')}>
                 Contact
             </p>
@@ -73,6 +73,18 @@ const App = () => {
                 )}
             />
         </div>
+    )
+
+    const connectButton = (
+        <button
+            className="hoverable icon"
+            onClick={openLinkInNewTab(
+                'https://www.linkedin.com/in/andrew-lor/'
+            )}
+        >
+            Connect
+            <img className="icon" src={linkedin} />
+        </button>
     )
 
     return (
@@ -111,13 +123,23 @@ const App = () => {
                     <div ref={scrollContainerRef} className="scroll-container">
                         <div id="home" className="page">
                             <div className="content">
-                                <p>Web Development + Design</p>
-                                <button
-                                    className="hoverable"
-                                    onClick={navigateToPage('about')}
-                                >
-                                    About
-                                </button>
+                                <p className="first">
+                                    Software Developer & UWaterloo Bachelor of
+                                    Comp. Sci. 2021.
+                                </p>
+                                <p>
+                                    Currently: Freelancing & open to fulltime
+                                    opportunities.
+                                </p>
+                                <div className="button-menu">
+                                    {connectButton}
+                                    <button
+                                        className="hoverable"
+                                        onClick={navigateToPage('projects')}
+                                    >
+                                        Explore Projects
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div id="about" className="page">
@@ -125,45 +147,59 @@ const App = () => {
                             <div className="text">
                                 <p>About</p>
                                 <p>
-                                    My name is Andrew. I'm a freelance software
-                                    developer.
+                                    I'm a Bachelor of Computer Science from
+                                    UWaterloo and have 3+ years of professional
+                                    experience as a frontend and fullstack
+                                    developer at startups and corporations
+                                    across Canada.
                                 </p>
                                 <p>
-                                    I am passionate about Front-end Development
-                                    and Design on the Web. I also know my way
-                                    around the backend.
+                                    View my resumé for more details on my
+                                    background.
                                 </p>
-                                <p>Explore my portfolio of projects below.</p>
-                                <button
-                                    className="hoverable"
-                                    onClick={navigateToPage('projects')}
-                                >
-                                    Explore
-                                </button>
+                                <div className="button-menu">
+                                    <button
+                                        className="hoverable icon"
+                                        onClick={openLinkInNewTab(
+                                            'https://andrewlor.me/AndrewLorResume.pdf'
+                                        )}
+                                    >
+                                        Resumé
+                                        <span className="material-icons icon">
+                                            open_in_new
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div id="projects" className="page">
                             <Projects projects={projects} />
                         </div>
+                        {/* <div id="products" className="page">
+                            <Products products={products} />
+                        </div> */}
                         <div id="contact" className="page">
                             <div className="text">
                                 <p>Contact</p>
                                 <p>
-                                    If you have a project you think I'd be a
-                                    good fit to work on, reach out.
+                                    Hit me up about opportunities, inquiries or
+                                    just to connect!
                                 </p>
-                                <button
-                                    className="hoverable email"
-                                    data-rh="andrewlor332@gmail.com"
-                                    onClick={() =>
-                                        copy('andrewlor332@gmail.com')
-                                    }
-                                >
-                                    Copy Email
-                                    <span class="material-icons">
-                                        content_copy
-                                    </span>
-                                </button>
+                                <div className="button-menu">
+                                    <button
+                                        className="hoverable icon"
+                                        data-rh="andrewlor332@gmail.com"
+                                        onClick={() =>
+                                            copy('andrewlor332@gmail.com')
+                                        }
+                                    >
+                                        Copy Email
+                                        <span className="material-icons icon">
+                                            content_copy
+                                        </span>
+                                    </button>
+                                    {connectButton}
+                                </div>
                             </div>
                             <img src={bridge} />
                         </div>

@@ -27,9 +27,9 @@ const Projects = ({ projects }) => {
                             leftTransition ? 'project-left' : 'project-right'
                         }
                         unmountOnExit
+                        key={project.title}
                     >
                         <Project
-                            key={project.title}
                             project={project}
                             next={cycleProject(1)}
                             prev={cycleProject(-1)}

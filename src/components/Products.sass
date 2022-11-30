@@ -1,0 +1,47 @@
+@import 'vars'
+
+.products
+    height: 100%
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+
+    img
+        height: 100%
+        width: 100%
+        object-fit: cover
+        position: absolute
+
+    .info
+        position: absolute
+        bottom: 20px
+        backdrop-filter: blur(4px)
+        -webkit-backdrop-filter: blur(4px)
+        border-radius: 25px
+        padding: 20px
+
+    .product
+        background-color: rgba(15, 25, 34, 0.8)
+        backdrop-filter: blur(4px)
+        -webkit-backdrop-filter: blur(4px)
+        height: 500px
+        width: 400px
+        border-radius: 25px
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 20px
+        margin: 20px
+        text-align: center
+
+        .title
+            font-size: $large
+
+        button
+            margin-top: auto
+            width: 100%
+
+            &:hover
+                transform: scale(1.05)

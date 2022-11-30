@@ -63,25 +63,19 @@
         display: none
 
 .menu-mobile-enter
-    height: 0
-    transform: scaleY(0)
+    left: 100%
 
     &-active
-        height: 60px
-        transform: scaleY(1)
-        transition: height 500ms, transform 500ms
+        left: 0
+        transition: left 500ms
     &-done
-        transform: scaleY(1)
-        height: 60px
+        left: 0
 
 .menu-mobile-exit
-    height: 60px
-    transform: scaleY(1)
+    left: 0
 
     &-active
-        height: 0
-        transform: scaleY(0)
-        transition: height 500ms, transform 500ms
+        left: 100%
+        transition: left 500ms
     &-done
-        transform: scaleY(0)
-        height: 0
+        left: 100%
