@@ -1,2 +1,2 @@
-# [andrewlor.me-2.0](http://andrewlor.me/)
+# [andrewlor.me-2.0](https://andrewlor.me/)
 My professional portfolio website.
