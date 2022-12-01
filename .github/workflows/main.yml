@@ -24,7 +24,9 @@ jobs:
     - run: npm run build --if-present
     - name: Upload to S3
       run: |
+        aws s3 cp ./public/index.html s3://andrewlor.me
         aws s3 cp ./dist/bundle.js s3://andrewlor.me
+        aws cloudfront create-invalidation --distribution-id E22VYOEIQ6F9J --paths "/" "/bundle.js"
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
