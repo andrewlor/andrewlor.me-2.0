@@ -32,15 +32,16 @@
         border-bottom: none
 
     .menu
-        position: relative
+        position: absolute
+        bottom: 0
         height: 160px
-        top: -244px
         padding: 40px 20px
         background-color: rgba(15, 25, 34, 0.5)
         backdrop-filter: blur(4px)
         -webkit-backdrop-filter: blur(4px)
         display: flex
         align-items: center
+        @include fill-avaliable
 
         >span.material-icons
             font-size: 64px

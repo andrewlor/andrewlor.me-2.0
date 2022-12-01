@@ -6,7 +6,7 @@ export const projects = [
         demo: 'https://betterletter.pro',
         source: 'https://github.com/andrewlor/better-letter',
         img: 'https://andrewlor.me/images/better-letter.png',
-        tags: 'React,React,Redux,Sass,AWS Lambda,OpenAI,AWS S3,AWS Cloudfront',
+        tags: 'React,Redux,Sass,AWS Lambda,OpenAI,AWS S3,AWS Cloudfront',
     },
     {
         title: 'Population Bracketology',
