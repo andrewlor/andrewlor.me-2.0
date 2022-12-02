@@ -3,31 +3,28 @@
 .project
     height: 100%
     width: 100%
-    border-bottom: 1px solid $border
     position: absolute
     top: 0
+    display: flex
+    flex-direction: column
 
     .img-container
-        height: 100%
+        flex: 4
         width: 100%
         display: flex
         align-items: center
         justify-content: center
 
         .display-img
-            width: 50%
+            max-height: 50%
+            max-width: 75%
             object-fit: cover
             border-radius: 5px
-            margin-bottom: 160px
             cursor: pointer
-
-    &:last-of-type
-        border-bottom: none
+            position: absolute
 
     .menu
-        position: absolute
-        bottom: 0
-        height: 160px
+        flex: 1
         padding: 40px 20px
         background-color: rgba(15, 25, 34, 0.5)
         backdrop-filter: blur(4px)

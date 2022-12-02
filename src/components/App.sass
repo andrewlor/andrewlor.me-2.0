@@ -71,7 +71,7 @@ button
         width: calc(100vw - 80px)
         top: 0
         left: 0
-        padding: 10px 40px
+        padding: 20px 40px
         cursor: default
         color: white
         transition: background-color 500ms ease, box-shadow 500ms ease
@@ -85,20 +85,17 @@ button
             backdrop-filter: blur(4px)
             -webkit-backdrop-filter: blur(4px)
 
-        .text-container
-            margin: 0 auto 0 20px
+        .logo-container
+            margin-right: auto
             display: flex
-            align-items: flex-end
+            align-items: center
             h1
                 margin: 0
-                font-family: 'Pacifico'
-            p
-                margin: 0 0 10px 20px
-
-        .me
-            width: 40px
-            height: 40px
-            border-radius: 40px
+            .me
+                width: 40px
+                height: 40px
+                border-radius: 40px
+                margin-right: 20px
 
         .icon
             width: 40px
@@ -109,6 +106,7 @@ button
                 margin-left: 20px
 
         .link
+            margin: 0
             margin-right: 20px
             cursor: pointer
             transition: background-color 250ms ease, color 250ms ease
@@ -130,12 +128,13 @@ button
             align-items: center
 
         .menu-mobile
+            padding-top: 20px
             display: none
             position: relative
 
         @media screen and (max-width: $mobile-width)
             width: calc(100vw - 40px)
-            padding: 10px 20px
+            padding: 20px
             .menu-desktop
                 display: none
             .menu-mobile-icon
@@ -209,7 +208,7 @@ button
         margin-top: 40px
 
     @media screen and (max-width: $mobile-width)
-        img
+        >img
             width: 0
         .text
             width: 100%

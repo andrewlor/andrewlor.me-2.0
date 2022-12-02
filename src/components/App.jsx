@@ -116,8 +116,11 @@ const App = () => {
                         }`}
                     >
                         <div className="main">
-                            <img className="me" src={me} />
-                            <div className="text-container">
+                            <div
+                                className="logo-container hoverable"
+                                onClick={navigateToPage('home')}
+                            >
+                                <img className="me" src={me} />
                                 <h1>Andrew Lor</h1>
                             </div>
                             <div className="menu-mobile-icon">
