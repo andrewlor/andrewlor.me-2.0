@@ -23,7 +23,7 @@ const App = () => {
     const scrollContainerRef = useRef()
 
     useEffect(() => {
-        setNavBarBackground(![0, 7, 8].includes(pageIndex))
+        setNavBarBackground(![0, 7, 8].includes(pageIndex) && pageIndex > 0)
     }, [pageIndex])
 
     useEffect(() => {
@@ -121,7 +121,7 @@ const App = () => {
                                 onClick={navigateToPage('home')}
                             >
                                 <img className="me" src={me} />
-                                <h1>Andrew Lor</h1>
+                                <p>Andrew Lor</p>
                             </div>
                             <div className="menu-mobile-icon">
                                 <span
