@@ -111,6 +111,13 @@ button
         .link
             margin-right: 20px
             cursor: pointer
+            transition: background-color 250ms ease, color 250ms ease
+            padding: 3px
+            border-radius: 2px
+
+            &.active
+                background-color: white
+                color: black
 
             &:hover
                 text-decoration: underline
@@ -155,6 +162,13 @@ button
     justify-content: center
     color: white
 
+    .background-img
+        height: 100%
+        width: 100%
+        z-index: -1
+        position: absolute
+        object-fit: cover
+
     .content
         display: flex
         flex-direction: column
@@ -170,6 +184,7 @@ button
 
 #about, #contact
     display: flex
+    background-color: black
 
     >img
         height: 100%

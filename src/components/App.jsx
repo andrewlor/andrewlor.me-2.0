@@ -10,25 +10,29 @@ import './App.sass'
 import './transitions.sass'
 import './hint.sass'
 
-const { github, linkedin, me, bridge, mountain } = assets
+const { github, linkedin, me, bridge, mountain, desktop } = assets
 
 const ReactHint = ReactHintFactory(React)
 
 const App = () => {
-    const [navBarBackground, setNavBarBackground] = useState(true)
+    const [navBarBackground, setNavBarBackground] = useState(false)
     const [menuIn, setMenuIn] = useState(false)
     const [appIn, setAppIn] = useState(false)
+    const [pageIndex, setPageIndex] = useState(0)
 
     const scrollContainerRef = useRef()
 
     useEffect(() => {
+        setNavBarBackground(![0, 7, 8].includes(pageIndex))
+    }, [pageIndex])
+
+    useEffect(() => {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.addEventListener('scroll', (e) => {
-                const showBackground =
-                    e.target.scrollTop <= 2 * e.target.clientHeight - 100 ||
-                    e.target.scrollTop >= 2 * e.target.clientHeight + 100
-
-                setNavBarBackground(showBackground)
+                const pageIndex = Math.floor(
+                    (e.target.scrollTop * 4) / e.target.clientHeight
+                )
+                setPageIndex(pageIndex)
             })
         }
         window.addEventListener('resize', (e) => {
@@ -48,16 +52,31 @@ const App = () => {
 
     const renderMenu = (className) => (
         <div className={className}>
-            <p className="link" onClick={navigateToPage('about')}>
+            <p
+                className={`link ${
+                    Math.floor((pageIndex + 1) / 4) === 1 && 'active'
+                }`}
+                onClick={navigateToPage('about')}
+            >
                 About
             </p>
-            <p className="link" onClick={navigateToPage('projects')}>
+            <p
+                className={`link ${
+                    Math.floor((pageIndex + 1) / 4) === 2 && 'active'
+                }`}
+                onClick={navigateToPage('projects')}
+            >
                 Projects
             </p>
-            {/* <p className="link" onClick={navigateToPage('products')}>
+            {/* <p className={`link ${Math.floor((pageIndex + 1) / 4) === 1 && 'active'}`} onClick={navigateToPage('products')}>
                 Products
             </p> */}
-            <p className="link" onClick={navigateToPage('contact')}>
+            <p
+                className={`link ${
+                    Math.floor((pageIndex + 1) / 4) === 3 && 'active'
+                }`}
+                onClick={navigateToPage('contact')}
+            >
                 Contact
             </p>
             <img
@@ -122,6 +141,7 @@ const App = () => {
                     </div>
                     <div ref={scrollContainerRef} className="scroll-container">
                         <div id="home" className="page">
+                            <img className="background-img" src={desktop} />
                             <div className="content">
                                 <p className="first">
                                     Software Developer & UWaterloo Bachelor of

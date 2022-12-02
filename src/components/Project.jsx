@@ -1,5 +1,4 @@
 import React, { memo } from 'react'
-import { assets } from '../data'
 import { openLinkInNewTab } from '../utils'
 import './Project.sass'
 
@@ -19,7 +18,6 @@ const renderTag = (name) => (
 const Project = ({ project, next, prev }) => (
     <div className="project">
         <div className="img-container">
-            <img className="background-img" src={assets.desktop} />
             <img
                 className="display-img hoverable"
                 src={project.img}
