@@ -19,12 +19,23 @@ const App = () => {
     const [menuIn, setMenuIn] = useState(false)
     const [appIn, setAppIn] = useState(false)
     const [pageIndex, setPageIndex] = useState(0)
+    const [fullHeight, setFullHeight] = useState(false)
 
     const scrollContainerRef = useRef()
 
     useEffect(() => {
-        setNavBarBackground(![0, 7, 8].includes(pageIndex) && pageIndex > 0)
-    }, [pageIndex])
+        setNavBarBackground(
+            menuIn || (![0, 7, 8].includes(pageIndex) && pageIndex > 0)
+        )
+    }, [pageIndex, menuIn])
+
+    useEffect(() => {
+        if (menuIn) {
+            setFullHeight(true)
+        } else {
+            setTimeout(() => setFullHeight(false), 250)
+        }
+    }, [menuIn])
 
     useEffect(() => {
         if (scrollContainerRef.current) {
@@ -79,18 +90,20 @@ const App = () => {
             >
                 Contact
             </p>
-            <img
-                className="icon hoverable"
-                src={github}
-                onClick={openLinkInNewTab('https://github.com/andrewlor')}
-            />
-            <img
-                className="icon hoverable"
-                src={linkedin}
-                onClick={openLinkInNewTab(
-                    'https://www.linkedin.com/in/andrew-lor/'
-                )}
-            />
+            <div>
+                <img
+                    className="icon hoverable"
+                    src={github}
+                    onClick={openLinkInNewTab('https://github.com/andrewlor')}
+                />
+                <img
+                    className="icon hoverable"
+                    src={linkedin}
+                    onClick={openLinkInNewTab(
+                        'https://www.linkedin.com/in/andrew-lor/'
+                    )}
+                />
+            </div>
         </div>
     )
 
@@ -112,8 +125,8 @@ const App = () => {
                 <div className="app">
                     <div
                         className={`navbar ${
-                            navBarBackground ? 'background' : ''
-                        }`}
+                            navBarBackground && 'background'
+                        } ${fullHeight && 'full-height'}`}
                     >
                         <div className="main">
                             <div
@@ -128,14 +141,14 @@ const App = () => {
                                     className="material-icons hoverable"
                                     onClick={() => setMenuIn((x) => !x)}
                                 >
-                                    menu
+                                    {menuIn ? 'close' : 'menu'}
                                 </span>
                             </div>
                             {renderMenu('menu-desktop')}
                         </div>
                         <CSSTransition
                             in={menuIn}
-                            timeout={500}
+                            timeout={250}
                             classNames="menu-mobile"
                             unmountOnExit
                         >

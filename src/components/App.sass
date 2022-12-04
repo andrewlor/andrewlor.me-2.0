@@ -76,6 +76,10 @@ button
         color: white
         transition: background-color 500ms ease, box-shadow 500ms ease
 
+        @media screen and (max-width: $mobile-width)
+            &.full-height
+                height: 100vh
+
         .main
             display: flex
             align-items: center
@@ -130,21 +134,22 @@ button
             align-items: center
 
         .menu-mobile
-            padding-top: 20px
+            padding-top: 40px
+            flex-direction: column
+            align-items: center
             display: none
             position: relative
 
+            .link
+                margin: 0 0 20px 0
+
         @media screen and (max-width: $mobile-width)
-            width: calc(100vw - 40px)
-            padding: 20px
             .menu-desktop
                 display: none
             .menu-mobile-icon
                 display: block
             .menu-mobile
                 display: flex
-                justify-content: flex-end
-                align-items: center
 
     .scroll-container
         width: 100vw
