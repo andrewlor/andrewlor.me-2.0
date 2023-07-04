@@ -161,11 +161,10 @@ const App = () => {
                             <div className="content">
                                 <p className="first">
                                     Software Developer & UWaterloo Bachelor of
-                                    Comp. Sci. 2021.
+                                    Computer Science
                                 </p>
                                 <p>
-                                    Currently: Freelancing & open to fulltime
-                                    opportunities.
+                                    Currently: Software @ <a href="https://www.mangrove.systems/" target="_blank">mangrove.systems</a>
                                 </p>
                                 <div className="button-menu">
                                     {connectButton}
@@ -217,10 +216,6 @@ const App = () => {
                         <div id="contact" className="page">
                             <div className="text">
                                 <p>Contact</p>
-                                <p>
-                                    Hit me up about opportunities, inquiries or
-                                    just to connect!
-                                </p>
                                 <div className="button-menu">
                                     <button
                                         className="hoverable icon"
