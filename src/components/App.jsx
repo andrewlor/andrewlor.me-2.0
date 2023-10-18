@@ -160,11 +160,11 @@ const App = () => {
                             <img className="background-img" src={desktop} />
                             <div className="content">
                                 <p className="first">
-                                    Software Developer & UWaterloo Bachelor of
-                                    Computer Science
+                                    Frontend Software Developer
                                 </p>
                                 <p>
-                                    Currently: Software @ <a href="https://www.mangrove.systems/" target="_blank">mangrove.systems</a>
+                                    Bachelor of Computer Science, University of
+                                    Waterloo
                                 </p>
                                 <div className="button-menu">
                                     {connectButton}
@@ -183,7 +183,7 @@ const App = () => {
                                 <p>About</p>
                                 <p>
                                     I'm a Bachelor of Computer Science from
-                                    UWaterloo and have 3+ years of professional
+                                    UWaterloo and have 4 years of professional
                                     experience as a frontend and fullstack
                                     developer at startups and corporations
                                     across Canada.
