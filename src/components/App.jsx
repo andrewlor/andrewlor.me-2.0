@@ -160,7 +160,7 @@ const App = () => {
                             <img className="background-img" src={desktop} />
                             <div className="content">
                                 <p className="first">
-                                    Frontend Software Developer
+                                    Software Developer
                                 </p>
                                 <p>
                                     Bachelor of Computer Science, University of
